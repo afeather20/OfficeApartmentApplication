@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
     
       </header>
-      <Map style='width: 400px; height: 300px;'/>
+      <Map />
 
     </div>
   );
