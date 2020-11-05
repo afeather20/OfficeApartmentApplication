@@ -43,7 +43,6 @@ class Map extends Component {
         
         const mapPointJson = this.getMapPointData();
         mapPointJson.features.forEach((point) => {
-            console.log("point");
             // build element
             let el = document.createElement('div');
             el.className = 'marker';
