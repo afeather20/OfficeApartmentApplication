@@ -1,7 +1,11 @@
-import React, {Component} from "react"
-import "../../App.css"
+import React, {Component} from "react";
+import ReactDOM from 'react-dom';
+
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+
+import "../../App.css"
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWZlYXRoZXIyMCIsImEiOiJjazhmaDlrYmEwNDg2M2dzMHRycG4wMXJzIn0._FYX6dOkYeSWZTCyQtZs0w';
 
 class Map extends Component {
