@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
+import MarkerWrapper from "./MarkerWrapper"
 import "../../App.css"
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWZlYXRoZXIyMCIsImEiOiJjazhmaDlrYmEwNDg2M2dzMHRycG4wMXJzIn0._FYX6dOkYeSWZTCyQtZs0w';
@@ -48,15 +49,8 @@ class Map extends Component {
         const mapPointJson = this.getMapPointData();
         mapPointJson.features.forEach((point) => {
             // build element
-            let el = document.createElement('div');
-            el.className = 'marker';
-            el.style.width = '10px';
-            el.style.height = '10px';
-            el.style.background = 'blue';
-
-            el.addEventListener('click', () => {
-                window.alert("It worked! "+point.properties.label);
-            });
+            const el = document.createElement('div');
+            ReactDOM.render(<MarkerWrapper text={point.properties.label} />, el);
 
             const options = { element: el };
             // add element to map
