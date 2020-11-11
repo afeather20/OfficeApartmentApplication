@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Map from './Components/MapComponent/Map'
 
 function App() {
