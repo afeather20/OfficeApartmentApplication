@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import ReactDOM from 'react-dom';
-
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 import MarkerWrapper from "./MarkerWrapper"
+
 import "../../App.css"
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWZlYXRoZXIyMCIsImEiOiJjazhmaDlrYmEwNDg2M2dzMHRycG4wMXJzIn0._FYX6dOkYeSWZTCyQtZs0w';
@@ -18,6 +18,7 @@ class Map extends Component {
             lat: 34,
             zoom: 2,
             isLoaded: false,
+            currentSelection: null,
         };
     }
 
@@ -52,17 +53,24 @@ class Map extends Component {
             const el = document.createElement('div');
             ReactDOM.render(<MarkerWrapper text={point.properties.label} />, el);
 
-            const options = { element: el };
             // add element to map
+            const options = { element: el };
             new mapboxgl.Marker(options)
                 .setLngLat(point.geometry.coordinates)
                 .addTo(this.map);
         });
-        
 
         this.setState({
             isLoaded: true
         });
+
+        this.map.on('move', () => {
+            this.setState({
+                lng: this.map.getCenter().lng.toFixed(4),
+                lat: this.map.getCenter().lat.toFixed(4),
+                zoom: this.map.getZoom().toFixed(2)
+            });
+        })
 
     }
 
