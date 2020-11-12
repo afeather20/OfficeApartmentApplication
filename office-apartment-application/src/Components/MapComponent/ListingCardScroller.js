@@ -22,7 +22,6 @@ class ListingCardScroller extends Component {
 				<Row>
 					<Col>
 						<CardDeck className="d-inline-flex flex-md-row flex-nowrap">
-						{/* <CardDeck bsPrefix="horizontal-card-deck"> */}
 							{/* Need to make this a loop that's dynamically updated
 								Also need to make whichever is selected be in focus */}
 							<ListingCard title="Cozy Studio Appartment" />
