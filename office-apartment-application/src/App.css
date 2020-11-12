@@ -15,6 +15,13 @@
   top: 10px;
 }
 
+.listing-card-scroller {
+	position: absolute;
+	z-index:1;
+	bottom: 0;
+	overflow-x: scroll;
+}
+
 .App {
   text-align: center;
 }

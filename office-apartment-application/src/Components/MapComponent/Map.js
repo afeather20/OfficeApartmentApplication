@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
-import MarkerWrapper from "./MarkerWrapper"
+import MarkerWrapper from './MarkerWrapper'
+import ListingCardScroller from './ListingCardScroller'
 
 import "../../App.css"
 
@@ -108,6 +109,9 @@ class Map extends Component {
 			<div>
 				<div id="geocoder" className="geocoder"></div>
 				<div ref={el => this.mapContainer = el} className="mapContainer" > </div>
+
+				{/* Listing Data will be passed to this object, as well as which listing is currently selected */}
+				<ListingCardScroller />
 			</div>
 		);
 	}
